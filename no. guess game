@@ -1,0 +1,21 @@
+import random
+randno=random.randint(1,100)
+print(randno)
+guess=0
+user=None
+while(user!=randno):
+    user=int(input("enter your guess : "))
+    if(user==randno):
+        print("you guessed it right")
+    else:
+        if(user<randno):
+            print("you guessed it wrong ,guess higher no...")
+        if(user>randno):
+            print("you guessed it wrong ,guess lower no...")
+    guess+=1
+print(f"you guessed in {guess}")
+with open("hiscore.txt","r") as f:
+    hiscore=int(f.read())
+if guess<hiscore:
+    with  open("hiscore.txt","w") as f:
+        f.write(str(guess))
