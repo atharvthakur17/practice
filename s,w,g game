@@ -1,0 +1,40 @@
+import random
+
+def gamewin(comp,you):
+    if comp==you:
+        print("game is a tie")
+    elif comp=="s":
+        if you=="w":
+            print("you loose")
+        if you=="g":
+            print("you win")
+    elif comp=="w":
+        if you=="s":
+            print("you win")
+        if you=="g":
+            print("you loose")       
+    elif comp=="g":
+        if you=="s":
+            print("you loose")
+        if you=="w":
+            print("you win")
+print('''computer's turn''')
+you=input('''yours's turn
+enter s -snake
+      w -water
+      g -gun =''')
+
+a=random.randint(1,3)
+if a==1:
+    comp="s"  
+if a==2:
+    comp="w"    
+if a==3:
+    comp="g"
+
+print(f"your choice is {you} and computer's choice is {comp}")
+
+gamewin(comp,you)
+
+
+
