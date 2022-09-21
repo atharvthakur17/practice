@@ -1,0 +1,62 @@
+class library:
+
+    def __init__(self, list):
+        self.list = list
+
+    def display(self):
+        print("\nAvailable books in library are : ")
+        for book in self.list:
+            print(" *" + book)
+
+    def issuebook(self, book):
+        if book in self.list:
+            print(f"\nyou have been issued {book} , kindly return in 30 days")
+            self.list.remove(book)
+        else:
+            print("\nsorry this is not present in library or check the spelling")
+
+    def returnbook(self, book):
+        self.list.append(book)
+        print("\nthanks for returning/submiting the book ")
+
+
+class student:
+
+    def returnbook(self):
+        return input("\nenter the book name you want to return : ")
+
+    def borrowbook(self):
+        return input("\nenter the book name you want to borrow : ")
+
+
+if __name__ == "__main__":
+    
+    
+    print('''\t......welcome to the library......\n''')
+    a = library(["python", "c++", "A.I.", "CSS"])
+    s = student()
+    
+    
+    while (True):
+        m = '''\nChoose an option :
+     1 - Display books present in library
+     2 - Isuue a book
+     3 - Return a book
+     4 - Exit the library'''
+        print(m)
+        
+        try:
+            v=int(input("\nenter the choivce : "))
+            if v==4:
+                print("\nthanks for using LMS !!!")
+                exit()
+            elif v==1:
+                a.display()
+            elif v==2:
+                a.issuebook(s.borrowbook())
+            elif v==3:
+                a.returnbook(s.returnbook())
+            else:
+                print("\nenter the valid choice")
+        except:
+            print("\nenter valid value in integer form")
